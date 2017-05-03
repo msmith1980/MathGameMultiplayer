@@ -1,0 +1,44 @@
+﻿<Window x:Class="MathGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+        xmlns:local="clr-namespace:MathGame"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Add Player" Command="{Binding AddPlayer}" ></Button>
+        <StackPanel Grid.Row="1" Grid.RowSpan="3" Orientation="Vertical">
+            <Label>List of Users</Label>
+            <ListBox HorizontalAlignment="Left" Name="lbPlayers"  VerticalAlignment="Top" ItemsSource="{Binding Players, Mode=OneWay, NotifyOnSourceUpdated=True, diag:PresentationTraceSources.TraceLevel=High}"  MinHeight="100" Width="148">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

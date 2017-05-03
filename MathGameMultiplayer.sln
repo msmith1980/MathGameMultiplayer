@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathGameMultiplayer", "MathGameMultiplayer\MathGameMultiplayer.csproj", "{5E19D5EF-0B8D-4ACB-A584-161A2E71FAC2}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLib", "MathLib\MathLib.csproj", "{3FAF5212-E347-49A9-A404-0158FDCD2DBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{126E2342-7EDF-49E6-B0BF-1646E050937C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathGame", "MathGame\MathGame.csproj", "{026454AB-6E05-4D46-B480-2EBE7BA134B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,16 @@ Global
 		{126E2342-7EDF-49E6-B0BF-1646E050937C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{126E2342-7EDF-49E6-B0BF-1646E050937C}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{126E2342-7EDF-49E6-B0BF-1646E050937C}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{026454AB-6E05-4D46-B480-2EBE7BA134B6}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
