@@ -1,4 +1,5 @@
-﻿using MathGameEngine;
+﻿using Core;
+using MathGameEngine;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace MathGameMultiplayer
         public static int TurnIndex;
         public static int PlayerIndex;
         public static int MaxTurns;
+        public static int UpperLimitNumber;
+
         const int CORRECT_POINTS = 10;
 
         static void Main(string[] args)
@@ -22,6 +25,7 @@ namespace MathGameMultiplayer
             SetPlayersNumber();
             SetPlayersNames();
             SetNumberOfQuestions();
+            SetUpperLimit();
             InitializeGameEngine();
             StartGameEngine();
         }
@@ -65,9 +69,25 @@ namespace MathGameMultiplayer
             }
         }
 
+        static void SetUpperLimit()
+        {
+            Console.WriteLine("What upper limit number would you like?");
+
+            var upperLimit = Console.ReadLine();
+            int upperLimitNumber = 0;
+
+            if (int.TryParse(upperLimit, out upperLimitNumber))
+            {
+                UpperLimitNumber = upperLimitNumber;
+            }
+        }
+
         static void InitializeGameEngine()
         {
-            gameEngine = new GameEngine(PlayersData, QuestionsNumber);
+            //var gameSettings = new GameSettings();
+            //int upperLimitNumber = gameSettings.GetUpperLimitNumber();
+
+            gameEngine = new GameEngine(PlayersData, QuestionsNumber, UpperLimitNumber);
             TurnIndex = 0;
             PlayerIndex = 0;
             MaxTurns = QuestionsNumber;
