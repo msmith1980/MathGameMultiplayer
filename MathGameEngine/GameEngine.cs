@@ -6,23 +6,22 @@ namespace MathGameEngine
 {
     public sealed class GameEngine
     {
-        int _playerTurnIndex;
         List<Player> _players;
         int _questionsNumber;
-        int scoreCorrectPoints = 10;
+        int _upperLimit;
 
-        public GameEngine(List<Player> players, int questionsNumber)
+        public GameEngine(List<Player> players, int questionsNumber, int upperLimit)
         {
-            this._players = players;
-            this._questionsNumber = questionsNumber;
-            this._playerTurnIndex = 0;
+            _players = players;
+            _questionsNumber = questionsNumber;
+            _upperLimit = upperLimit;
             this.GenerateOps();
         }
 
 
         public void GenerateOps()
         {
-            var mathEngine = new MathEngine(100);
+            var mathEngine = new MathEngine(_upperLimit);
 
             foreach (var player in _players)
             {
@@ -33,7 +32,5 @@ namespace MathGameEngine
                 }
             }
         }
-
-        
     }
 }
