@@ -3,28 +3,25 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Input;
+using MathGame.ViewModel;
 using Models;
 
 namespace MathGame.Commands
 {
     public sealed class AddPlayerCommand : ICommand, INotifyPropertyChanged
     {
-        private ObservableCollection<Player> _playerList;
+        private readonly MathViewModel viewModel;
 
-        public AddPlayerCommand(ObservableCollection<Player> player)
+        public AddPlayerCommand(MathViewModel viewModel)
         {
-            Player = player;
+            this.viewModel = viewModel;
         }
 
-        public ObservableCollection<Player> Player
+        public MathViewModel Viewmodel
         {
             get
             {
-                return _playerList;
-            }
-            set
-            {
-                _playerList = value;
+                return viewModel;
             }
         }
 
@@ -42,8 +39,8 @@ namespace MathGame.Commands
             var tbBox = parameter as TextBox;
             if (tbBox != null)
             {
-                Player.Add(new Player() { Name = tbBox.Text });
-                OnPropertyChanged(nameof(Player));
+                viewModel.Players.Add(new Player() { Name = tbBox.Text });
+                OnPropertyChanged(nameof(Viewmodel));
                 tbBox.Text = string.Empty;
             }
         }

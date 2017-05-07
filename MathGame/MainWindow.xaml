@@ -28,17 +28,28 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Button Content="Add Player" Command="{Binding AddPlayer}" ></Button>
-        <StackPanel Grid.Row="1" Grid.RowSpan="3" Orientation="Vertical">
-            <Label>List of Users</Label>
-            <ListBox HorizontalAlignment="Left" Name="lbPlayers"  VerticalAlignment="Top" ItemsSource="{Binding Players, Mode=OneWay, NotifyOnSourceUpdated=True, diag:PresentationTraceSources.TraceLevel=High}"  MinHeight="100" Width="148">
-                <ListBox.ItemTemplate>
+        <Grid x:Name="stackPanel" Grid.Row="1" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <Label >List of Users</Label>
+            <ListView Grid.Row="1"  Name="lbPlayers" 
+                ItemsSource="{Binding MathViewModel.Players, Mode=OneWay, NotifyOnSourceUpdated=True}"   >
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
                             <Label Content="{Binding Name}"/>
-                        </StackPanel>
+                            <Label Content="{Binding MathOps.Count}" Grid.Column="1" HorizontalAlignment="Right"/>
+                        </Grid>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </StackPanel>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Label Grid.Row="4" Content="{Binding MathViewModel.NumberOfQuestions}" ContentStringFormat="Number of questions {0}"></Label>
     </Grid>
 </Window>

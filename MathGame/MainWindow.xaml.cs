@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using MathGame.Commands;
+using MathGame.ViewModel;
 using MathGame.Views;
 using Models;
 
@@ -21,28 +22,30 @@ namespace MathGame
             {
                 return new CallBackCommand(() =>
                 {
-                    var aUser = new AddUser(Players);
+                    var aUser = new AddUser(MathViewModel);
                     aUser.ShowDialog();
                 });
             }
         }
 
-        ObservableCollection<Player> _players = new ObservableCollection<Player>();
+        MathViewModel _viewModel = new MathViewModel();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<Player> Players
+        public MathViewModel MathViewModel
         {
             get
             {
-                return _players;
+                return _viewModel;
             }
             set
             {
-                _players = value;
-                OnPropertyChanged(nameof(Players));
+                _viewModel = value;
+                OnPropertyChanged(nameof(MathViewModel));
             }
         }
+
+        public int NumberOfQuestions { get; set; }
 
         public MainWindow()
         {

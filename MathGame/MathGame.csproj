@@ -70,9 +70,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\SetNumberOfOperationsCommand.cs" />
     <Compile Include="Commands\CallBackCommand.cs" />
+    <Compile Include="ViewModel\MathViewModel.cs" />
     <Compile Include="Views\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NumberOfQuestions.xaml.cs">
+      <DependentUpon>NumberOfQuestions.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NumberOfQuestions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

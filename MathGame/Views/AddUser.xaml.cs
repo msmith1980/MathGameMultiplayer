@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using MathGame.Commands;
+using MathGame.ViewModel;
 using Models;
 
 namespace MathGame.Views
@@ -13,8 +14,9 @@ namespace MathGame.Views
     /// </summary>
     public partial class AddUser : Window, INotifyPropertyChanged
     {
-        private ObservableCollection<Player> _playerList;
+        private readonly MathViewModel viewModel;
         private ICommand _addPlayerCommand;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -31,10 +33,12 @@ namespace MathGame.Views
             }
         }
 
-        public AddUser(ObservableCollection<Player> players) : this()
+
+        public AddUser(MathViewModel viewModel) : this()
         {
-            Players = players;
-            AddPlayer = new AddPlayerCommand(Players);
+            this.viewModel = viewModel;
+            AddPlayer = new AddPlayerCommand(viewModel);
+
         }
 
         public AddUser()
@@ -42,21 +46,15 @@ namespace MathGame.Views
             InitializeComponent();
         }
 
-        public ObservableCollection<Player> Players
-        {
-            get
-            {
-                return _playerList;
-            }
-            set
-            {
-                _playerList = value;
-            }
-        }
-
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void showNumberOfQuestions_Click(object sender, RoutedEventArgs e)
+        {
+            var numberOfQuestions = new NumberOfQuestions(viewModel);
+            numberOfQuestions.ShowDialog();
         }
     }
 }
